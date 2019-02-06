@@ -151,10 +151,6 @@ strong {
   text-align: justify;
 }
 
-.content img {
-  width: 50%;
-}
-
 .grid img {
   width: 100%;
 }
@@ -407,7 +403,7 @@ strong {
   background-color: rgba(0,0,0,.6);
   background-blend-mode: multiply;
   background-attachment: fixed;
-  background-image: url('images/cover.jpg');
+  background-image: url('images/section1.jpg');
   background-size: cover;
 }
 
@@ -451,4 +447,25 @@ strong {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Section dividers ------------------------------------------------------------------ */
+
+.section {
+  background-attachment: fixed;
+  background-color: rgba(0,0,0,.6);
+  background-blend-mode: multiply;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+#section1 {
+  background-image: url('images/section1.jpg');
+}
+
+#section2 {
+  background-image: url('images/section2.jpg');
 }
