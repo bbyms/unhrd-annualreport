@@ -46,6 +46,7 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 30px;
+  max-width: 1200px;
 }
 
 .grid-3 {
@@ -56,18 +57,16 @@ figure {
   margin: 0 0 20px 0;
 }
 
-@media screen and (max-width: 600px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 hr {
   border: 0;
   height: 1px;
   background-color: var(--gray-lighter);
   margin: 30px 0;
   padding: 0;
+}
+
+.logo {
+  max-height: 170px;
 }
 
 /* Typography ------------------------------------------------------------------ */
@@ -168,9 +167,8 @@ strong {
 .content {
   padding: 30px;
   max-width: 800px;
-  margin: auto;
+  margin: 0 auto;
   color: var(--gray);
-  text-align: justify;
 }
 
 .content h1 {
@@ -178,6 +176,28 @@ strong {
   display: inline-block;
   padding-bottom: 10px;
   border-bottom: 5px solid var(--primary);
+}
+
+.content h2 {
+  color: black;
+  display: inline-block;
+  padding-bottom: 10px;
+  border-bottom: 5px solid var(--primary);
+}
+
+.content p {
+  text-align: justify;
+}
+
+.call-out {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 30px;
+  /* border: 1px dashed var(--primary); */
+}
+
+.call-out p {
+  margin-bottom: 0;
 }
 
 @media screen and (max-width: 600px) {
@@ -188,11 +208,11 @@ strong {
 
 /* Intro ----------------------------------------------------------------------- */
 
-.intro p {
+.foreword p {
   color: var(--gray);
 }
 
-.intro .lead {
+.foreword .lead {
   color: var(--black);
 }
 
@@ -201,10 +221,10 @@ strong {
 .country {
   background-color: white;
   flex-flow: column;
+  justify-content: start;
 }
 
 .country .grid-img {
-  align-items: flex-start;
   grid-template-rows: 480px;
   grid-row-gap:  40px;
   grid-column-gap: 0;
@@ -217,6 +237,12 @@ strong {
   object-fit: cover;
   width: 100%;
 }
+
+.country .grid-call-out {
+  grid-template-columns: 3fr 1fr;
+}
+
+
 
 /* Cover ----------------------------------------------------------------------- */
 
@@ -247,9 +273,11 @@ strong {
   font-weight: 600;
 }
 
-.cover .content {
-  width: 50%;
-  text-align: center;
+@media screen and (min-width: 600px) {
+  .cover .content {
+    width: 50%;
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -434,17 +462,32 @@ strong {
 
 .numbers h2 {
   color: var(--white);
-  font-size: 3rem;
-  margin-bottom: 0;
+  font-size: 4rem;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: 300;
+  padding-bottom: 20px;
+  display: block;
 }
 
 .numbers label,
 .numbers p {
   color: var(--white);
+  text-align: center;
+}
+
+.numbers .content .grid div {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 
 .numbers p {
   margin-top: 40px;
+}
+
+.numbers .content {
+  max-width: 960px;
 }
 
 /* Back cover ------------------------------------------------------------------ */
@@ -490,38 +533,73 @@ strong {
   background-image: url('images/section2.jpg');
 }
 
-/* Tweet ------------------------------------------------------------------ */
+/* Intro ------------------------------------------------------------------ */
 
-.tweet {
+.intro {
   text-align: center;
   background-color: var(--primary);
   width: 100%;
   padding: 30px;
-  margin-top: 30px;
 }
 
-.tweet .lead {
+.intro .lead {
   max-width: 800px;
   color: var(--white);
   margin: 0 auto;
+  text-align: left;
 }
 
-.tweet .link {
+@media screen and (min-width: 600px) {
+  .intro .lead {
+    padding: 30px;
+  }
+}
+
+.intro h1 {
+  color: var(--white);
+  border-bottom: 5px solid var(--white);
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.intro .link {
   margin-top: 30px;
   display: inline-block;
   font-size: 1.2rem;
 }
 
-.tweet-avatar {
+.intro-avatar {
   border-radius: 1000px;
   background-color: var(--white);
   height: 120px;
   width: 120px;
   margin: auto;
   margin-bottom: 30px;
+  object-fit: cover;
+}
+
+.intro-avatar img {
+  object-fit: cover;
+  border-radius: 1000px;
+  height: 120px;
 }
 
 /* Snapshot ------------------------------------------------------------------ */
+
+.snapshot {
+  margin-bottom: 60px;
+  max-width: 1200px;
+}
+
+.snapshot .grid {
+  margin-bottom: 60px;
+  grid-column-gap: 40px;
+}
+
+.snapshot .grid-charts {
+  grid-template-columns: 3fr 1fr;
+}
+
 .snapshot .grid .map {
   height: auto;
 }
@@ -542,9 +620,9 @@ strong {
 
 .snapshot h3 {
   font-family: var(--sans-serif);
-  border-bottom: 1px solid var(--gray-lighter);
+  border-bottom: 1px solid var(--primary);
   text-transform: uppercase;
-  font-weight: 300;
+  font-weight: 600;
   padding-bottom: 10px;
 }
 
@@ -585,6 +663,11 @@ strong {
   font-weight: 700;
 }
 
+.transport span {
+  fill: var(--black);
+  font-weight: 700;
+}
+
 .air {
   fill: var(--blue-light);
 }
@@ -597,6 +680,10 @@ strong {
   fill: var(--blue);
 }
 
+.truck {
+  fill: var(--blue-darker);
+}
+
 .cargo rect {
   fill: var(--accent);
 }
@@ -604,4 +691,31 @@ strong {
 .cargo text {
   font-family: var(--sans-serif);
   font-weight: 700;
+}
+
+.chart-legend text {
+  font-family: var(--sans-serif);
+  fill: var(--black);
+}
+
+.chart-legend {
+  transform: translate(250px, 150px);
+}
+
+/* Responsive */
+
+@media screen and (max-width: 600px) {
+  .grid,
+  .grid-call-out,
+  .grid-img {
+    grid-template-columns: 1fr !important;
+  }
+
+  .grid-call-out {
+    grid-row-gap: 0 !important;
+  }
+
+  .cargo svg {
+    width: 375px;
+  }
 }
