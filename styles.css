@@ -458,6 +458,7 @@ strong {
 .numbers h1 {
   color: var(--white);
   border-bottom-color: var(--white);
+  text-align: center;
 }
 
 .numbers h2 {
@@ -488,6 +489,7 @@ strong {
 
 .numbers .content {
   max-width: 960px;
+  text-align: center;
 }
 
 /* Back cover ------------------------------------------------------------------ */
@@ -647,6 +649,7 @@ strong {
 .icons {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .icon {
