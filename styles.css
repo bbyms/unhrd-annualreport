@@ -53,6 +53,11 @@ section {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.grid-partners {
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
 figure {
   margin: 0 0 20px 0;
 }
@@ -98,15 +103,17 @@ a {
   transition: all ease-in-out .3s;
 }
 
-p {
+p,
+li {
   line-height: 1.6;
   margin-top: 0;
 }
 
 .lead {
   color: var(--black);
-  font-family: 'Merriweather', serif;
+  font-family: var(--sans-serif);
   font-size: 18px;
+  font-weight: 700;
 }
 
 figcaption {
@@ -200,6 +207,10 @@ strong {
   margin-bottom: 0;
 }
 
+.call-out-img {
+  margin-bottom: 40px;
+}
+
 @media screen and (max-width: 600px) {
   .content {
     text-align: left;
@@ -227,7 +238,7 @@ strong {
 .country .grid-img {
   grid-template-rows: 480px;
   grid-row-gap:  40px;
-  grid-column-gap: 0;
+  grid-column-gap: 40px;
   margin-bottom: 40px;
   max-width: 1200px;
 }
@@ -241,8 +252,6 @@ strong {
 .country .grid-call-out {
   grid-template-columns: 3fr 1fr;
 }
-
-
 
 /* Cover ----------------------------------------------------------------------- */
 
@@ -535,6 +544,14 @@ strong {
   background-image: url('images/section2.jpg');
 }
 
+#innovation {
+  background-image: url('images/innovation/cradletent.jpg');
+}
+
+#partners {
+  background-color: var(--white);
+}
+
 /* Intro ------------------------------------------------------------------ */
 
 .intro {
@@ -710,7 +727,8 @@ strong {
 @media screen and (max-width: 600px) {
   .grid,
   .grid-call-out,
-  .grid-img {
+  .grid-img,
+  .grid-partners {
     grid-template-columns: 1fr !important;
   }
 
