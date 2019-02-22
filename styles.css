@@ -74,6 +74,14 @@ hr {
   max-height: 170px;
 }
 
+.m-b-3 {
+  margin-bottom: 3rem;
+}
+
+.m-t-3 {
+  margin-top: 3rem;
+}
+
 /* Typography ------------------------------------------------------------------ */
 
 h1, h2, h3, h4, h5 {
@@ -114,13 +122,6 @@ li {
   font-family: var(--sans-serif);
   font-size: 18px;
   font-weight: 700;
-}
-
-figcaption {
-  color: var(--black);
-  font-family: 'Merriweather', serif;
-  font-size: 14px;
-  line-height: 1.6;
 }
 
 label {
@@ -194,6 +195,7 @@ strong {
 
 .content p {
   text-align: justify;
+  font-size: 18px;
 }
 
 .call-out {
@@ -205,6 +207,8 @@ strong {
 
 .call-out p {
   margin-bottom: 0;
+  font-weight: 300;
+  font-size: 16px;
 }
 
 .call-out-img {
@@ -236,15 +240,15 @@ strong {
 }
 
 .country .grid-img {
-  grid-template-rows: 480px;
+  /* grid-template-rows: 480px; */
   grid-row-gap:  40px;
-  grid-column-gap: 40px;
-  margin-bottom: 40px;
+  grid-column-gap: 10px;
+  /* margin-bottom: 40px; */
   max-width: 1200px;
 }
 
 .country .grid-img img {
-  height: 480px;
+  height: 500px;
   object-fit: cover;
   width: 100%;
 }
@@ -545,7 +549,11 @@ strong {
 }
 
 #innovation {
-  background-image: url('images/innovation/cradletent.jpg');
+  background-image: url('images/innovation/inflatable1.jpg');
+}
+
+#behindthescenes {
+  background-image: url('images/behind.jpg');
 }
 
 #partners {
@@ -722,7 +730,16 @@ strong {
   transform: translate(250px, 150px);
 }
 
-/* Responsive */
+/* Figures ------------------------------------------------------------------ */
+
+figcaption {
+  font-style: italic;
+  font-size: .8rem;
+  color: var(--gray);
+}
+
+/* Responsive ------------------------------------------------------------------ */
+
 
 @media screen and (max-width: 600px) {
   .grid,

@@ -75,7 +75,7 @@ function processData(data) {
 // Data array
 var data = [1.43, 11.38, 41.80, 45.27, 0.11, 0.01];
 
-var bartext = ["CCCamp Management", "Education", "Emergency Shelter", "Health", "Logistics", "Wash"];
+var bartext = ["Camp Management", "Education", "Emergency Shelter", "Health", "Logistics", "Wash"];
 
 var width = 700,
     barHeight = 20;
