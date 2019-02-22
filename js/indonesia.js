@@ -2,7 +2,7 @@
 
 // Fake JSON data
 var json = {"countries_msg_vol": {
-  "Air": 14, "Charter": 72, "Truck": 14
+  "Air": 10, "Charter": 60, "Land": 10, "Multimodal": 20
 }};
 
 // D3 Bubble Chart 
@@ -10,7 +10,7 @@ var json = {"countries_msg_vol": {
 var diameter = 250;
 
 var svg = d3.select('#indonesiaTransport').append('svg')
-        .attr('width', 350)
+        .attr('width', 450)
         .attr('height', diameter);
 
 var bubble = d3.layout.pack()
@@ -73,9 +73,9 @@ function processData(data) {
 // Bar chart --------------------------------------------------
 
 // Data array
-var data = [7.28, 66.51, 15.81, 3.65, 2.18, 4.58];
+var data = [13.65, 61.93, 14.72, 3.39, 2.03, 4.26];
 
-var bartext = ["CCCamp Management", "Emergency Shelter", "Logistics", "Protection", "Staff Supplies", "Wash"];
+var bartext = ["Camp Management", "Emergency Shelter", "Logistics", "Protection", "Staff Supplies", "Wash"];
 
 var width = 700,
     barHeight = 20;
@@ -120,3 +120,103 @@ bar.append("text")
 
 barLegend.append("text")
     .text(function(d){return d;})
+
+
+    // Donut charts ------------------------------------------------------------------------
+
+   var weight = [
+    { name: 'Dubai', percent: 50 },
+    {name: 'Kuala Lumpur', percent: 25},
+    {name: 'Brindisi', percent: 25}
+  ];
+  
+  var volume = [
+    { name: 'Dubai', percent: 50 },
+    {name: 'Kuala Lumpur', percent: 25},
+    {name: 'Brindisi', percent: 25}
+  ];
+  
+  var value = [
+    { name: 'Dubai', percent: 50 },
+    {name: 'Kuala Lumpur', percent: 25},
+    {name: 'Brindisi', percent: 25}
+  ];
+  
+  var pie = d3.layout.pie()
+    .value(function (d) { return d.percent })
+    .sort(null)
+  
+  var w = 150, h = 150;
+  
+  var outerRadius = w / 2;
+  var innerRadius = 50;
+  
+  var color = d3.scale.category10();
+  
+  var arc = d3.svg.arc()
+    .outerRadius(outerRadius)
+    .innerRadius(innerRadius);
+  
+  var weightPie = d3.select("#indWeight")
+    .append("svg")
+    .attr({
+      width: w,
+      height: h
+    }).append('g')
+    .attr({
+      transform: 'translate(' + w / 2 + ',' + h / 2 + ')'
+    });
+  
+  var path = weightPie.selectAll('path')
+    .data(pie(weight))
+    .enter()
+    .append('path')
+    .attr({
+      d: arc,
+      fill: function (d, i) {
+        return color(d.data.name);
+      }
+    });
+  
+  var valuePie = d3.select("#indValue")
+    .append("svg")
+    .attr({
+      width: w,
+      height: h
+    }).append('g')
+    .attr({
+      transform: 'translate(' + w / 2 + ',' + h / 2 + ')'
+    });
+  
+  var value = valuePie.selectAll('path')
+    .data(pie(value))
+    .enter()
+    .append('path')
+    .attr({
+      d: arc,
+      fill: function (d, i) {
+        return color(d.data.name);
+      }
+    });
+  
+  
+  var volumePie = d3.select("#indVolume")
+    .append("svg")
+    .attr({
+      width: w,
+      height: h
+    }).append('g')
+    .attr({
+      transform: 'translate(' + w / 2 + ',' + h / 2 + ')'
+    });
+  
+  var volume = volumePie.selectAll('path')
+    .data(pie(volume))
+    .enter()
+    .append('path')
+    .attr({
+      d: arc,
+      fill: function (d, i) {
+        return color(d.data.name);
+      }
+    });

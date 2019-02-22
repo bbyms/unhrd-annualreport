@@ -6,6 +6,7 @@
   --blue: #57aafd;
   --blue-dark: #2a93fc;
   --blue-darker: #037cf5;
+  --indigo: #30499b;
   --gray: #616161;
   --gray-lighter: #ececec;
   --white: #fff;
@@ -170,6 +171,29 @@ strong {
   transform:translateX(0%) scale(1);
 }
 
+/* Foreword ------------------------------------------------------------- */
+.foreword p {
+  color: var(--gray);
+}
+
+.foreword .lead {
+  color: var(--black);
+}
+
+.signature span {
+  text-transform: uppercase;
+  border-top: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.signature h3 {
+  color: var(--black);
+  text-align: center;
+}
+
 /* Country content ------------------------------------------------------------- */
 
 .content {
@@ -219,16 +243,6 @@ strong {
   .content {
     text-align: left;
   }
-}
-
-/* Intro ----------------------------------------------------------------------- */
-
-.foreword p {
-  color: var(--gray);
-}
-
-.foreword .lead {
-  color: var(--black);
 }
 
 /* Country --------------------------------------------------------------------- */
@@ -321,102 +335,21 @@ strong {
 }
 /* Map ------------------------------------------------------------------------- */
 
-.map {
-  /* background-attachment: fixed; */
-  background-color: var(--gray);
-  background-image: url('images/WorldConOps@2x.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top;
-  align-items: flex-end;
-  justify-content: center;
+#network {
+  background-color: var(--accent);
   position: relative;
 }
 
-.legend {
-  background-image: url('images/legend.svg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 300px;
-  width: 150px;
+#network h1 {
+  color: var(--white);
+  display: inline-block;
+  padding-bottom: 10px;
+  border-bottom: 5px solid var(--primary);
+  top: 60px;
   position: absolute;
-  left: 30px;
-  bottom: 30px;
 }
 
-.map h1 {
-  color: white;
-  font-size: 2rem;
-  margin: 30px 50px;
-}
-
-@media screen and (max-width: 600px) {
-  .legend {
-    background-image: url('images/legend_horizontal.svg');
-    background-repeat: no-repeat;
-    width: 100%;
-    position: static;
-    height: 100px;
-    grid-row: 1;
-    align-self: flex-start;
-    margin-top: 20px;
-  }
-
-  .map  {
-    background-position: top;
-    background-size: cover;
-    padding: 20px;
-    justify-content: flex-end;
-    display: grid;
-    grid-template-rows: 1fr 150px auto;
-    grid-row-gap: 20px;
-    animation: slide 30s infinite;
-    transition: all 5s ease-in-out;
-    /* min-height: 70vh; */
-  }
-
-  .map h1 {
-    margin: 0;
-    grid-row: 3;
-  }
-}
-
-/* Map highlighted ------------------------------------------------------------- */
-
-.map-highlighted {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.map-highlighted {
-  background-color: var(--primary);
-  min-height: 0;
-  padding: 50px 0;
-}
-
-.map-highlighted .grid {
-  text-align: center;
-  width: 960px;
-  margin: auto;
-}
-
-.map-highlighted h1 {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 400;
-  font-size: 4rem;
-  color: white;
-}
-
-@media screen and (max-width: 600px) {
-  .map-highlighted h1  {
-    margin-bottom: 0;
-  }
-}
-
-.map-highlighted label {
-  color: white;
-}
+/* Operations ------------------------------------------------------------- */
 
 .bangladesh {
   background-image: url('images/bangladesh.svg');
@@ -686,6 +619,17 @@ strong {
   margin-right: 20px;
 }
 
+.piechart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.piechart span {
+  position: absolute;
+  font-weight: 700;
+}
+
 .transport text {
   fill: var(--white);
   font-weight: 700;
@@ -700,16 +644,24 @@ strong {
   fill: var(--blue-light);
 }
 
-.charter {
-  fill: var(--blue-lighter);
+.sea {
+  fill: var(--accent);
 }
 
 .liner {
   fill: var(--blue);
 }
 
-.truck {
+.land {
+  fill: var(--blue-dark);
+}
+
+.charter {
   fill: var(--blue-darker);
+}
+
+.multimodal {
+  fill: var(--blue-lighter);
 }
 
 .cargo rect {

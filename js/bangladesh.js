@@ -2,7 +2,7 @@
 
 // Fake JSON data
 var json = {"countries_msg_vol": {
-  "Air": 43, "Charter": 6, "Liner": 52
+  "Air": 41, "Sea": 50, "Charter": 5, "Multimodal": 5
 }};
 
 // D3 Bubble Chart 
@@ -10,7 +10,7 @@ var json = {"countries_msg_vol": {
 var diameter = 250;
 
 var svg = d3.select('#bangladeshTransport').append('svg')
-        .attr('width', 350)
+        .attr('width', 400)
         .attr('height', diameter);
 
 var bubble = d3.layout.pack()
@@ -74,9 +74,9 @@ function processData(data) {
 // Bar chart --------------------------------------------------
 
 // Data array
-var data = [0.07, 1.44, 53.67, 2.37, 24.85, 17.53, 0.07];
+var data = [0.07, 1.46, 54.41, 2.40, 25.20, 16.39, 0.07];
 
-var bartext = ["CCCamp Management", "Education", "Emergency Shelter", "Health", "Logistics", "Staff Supplies", "Wash"];
+var bartext = ["Camp Management", "Education", "Emergency Shelter", "Health", "Logistics", "Staff Supplies", "Wash"];
 
 var width = 700,
     barHeight = 20;
@@ -121,3 +121,99 @@ var barLegend = chart.append("g")
 
 barLegend.append("text")
     .text(function(d){return d;})
+
+    // Donut charts ------------------------------------------------------------------------
+
+var weight = [
+  { name: 'Dubai', percent: 50 },
+  {name: 'Kuala Lumpur', percent: 50}
+];
+
+var volume = [
+  { name: 'Dubai', percent: 50 },
+  {name: 'Kuala Lumpur', percent: 50}
+];
+
+var value = [
+  { name: 'Dubai', percent: 50 },
+  {name: 'Kuala Lumpur', percent: 50}
+];
+
+var pie = d3.layout.pie()
+  .value(function (d) { return d.percent })
+  .sort(null)
+
+var w = 150, h = 150;
+
+var outerRadius = w / 2;
+var innerRadius = 50;
+
+var color = d3.scale.category10();
+
+var arc = d3.svg.arc()
+  .outerRadius(outerRadius)
+  .innerRadius(innerRadius);
+
+var weightPie = d3.select("#bangladeshWeight")
+  .append("svg")
+  .attr({
+    width: w,
+    height: h
+  }).append('g')
+  .attr({
+    transform: 'translate(' + w / 2 + ',' + h / 2 + ')'
+  });
+
+var path = weightPie.selectAll('path')
+  .data(pie(weight))
+  .enter()
+  .append('path')
+  .attr({
+    d: arc,
+    fill: function (d, i) {
+      return color(d.data.name);
+    }
+  });
+
+var valuePie = d3.select("#bangladeshValue")
+  .append("svg")
+  .attr({
+    width: w,
+    height: h
+  }).append('g')
+  .attr({
+    transform: 'translate(' + w / 2 + ',' + h / 2 + ')'
+  });
+
+var value = valuePie.selectAll('path')
+  .data(pie(value))
+  .enter()
+  .append('path')
+  .attr({
+    d: arc,
+    fill: function (d, i) {
+      return color(d.data.name);
+    }
+  });
+
+
+var volumePie = d3.select("#bangladeshVolume")
+  .append("svg")
+  .attr({
+    width: w,
+    height: h
+  }).append('g')
+  .attr({
+    transform: 'translate(' + w / 2 + ',' + h / 2 + ')'
+  });
+
+var volume = volumePie.selectAll('path')
+  .data(pie(volume))
+  .enter()
+  .append('path')
+  .attr({
+    d: arc,
+    fill: function (d, i) {
+      return color(d.data.name);
+    }
+  });
