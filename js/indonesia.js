@@ -124,7 +124,7 @@ barLegend.append("text")
 
     // Donut charts ------------------------------------------------------------------------
 
-   var weight = [
+  var weight = [
     { name: 'Dubai', percent: 50 },
     {name: 'Kuala Lumpur', percent: 25},
     {name: 'Brindisi', percent: 25}
@@ -151,7 +151,9 @@ barLegend.append("text")
   var outerRadius = w / 2;
   var innerRadius = 50;
   
-  var color = d3.scale.category10();
+  var colors = ["#ff5252", "#ffc759", "#fcdc5d", "#b3de62"];
+
+  var color = d3.scale.ordinal().range(colors);
   
   var arc = d3.svg.arc()
     .outerRadius(outerRadius)
@@ -174,9 +176,71 @@ barLegend.append("text")
     .attr({
       d: arc,
       fill: function (d, i) {
-        return color(d.data.name);
+        return color(i);
       }
     });
+
+var text = weightPie.selectAll('text')
+  .data(pie(weight))
+  .enter()
+  .append("text")
+  .transition()
+  .duration(200)
+  .attr("transform", function (d) {
+    return "translate(" + arc.centroid(d) + ")";
+  })
+  .attr("dy", ".4em")
+  .attr("text-anchor", "middle")
+  .text(function (d) {
+    return d.data.percent + "%";
+  })
+  .style({
+    fill: '#fff',
+    'font-size': '10px'
+  });
+
+var legendRectSize = 20;
+var legendSpacing = 7;
+var legendHeight = legendRectSize + legendSpacing;
+
+
+var legend = weightPie.selectAll('.legend')
+  .data(color.domain())
+  .enter()
+  .append('g')
+  .attr({
+    class: 'legend',
+    transform: function (d, i) {
+      //Just a calculation for x & y position
+      return 'translate(-35,' + ((i * legendHeight) - 65) + ')';
+    }
+  });
+legend.append('rect')
+  .attr({
+    width: legendRectSize,
+    height: legendRectSize,
+    rx: 20,
+    ry: 20
+  })
+  .style({
+    fill: color,
+    stroke: color
+  });
+
+legend.append('text')
+  .attr({
+    x: 30,
+    y: 15
+  })
+  .text(function (d) {
+    return d;
+  }).style({
+    fill: '#929DAF',
+    'font-size': '14px'
+  });
+  
+
+  
   
   var valuePie = d3.select("#indValue")
     .append("svg")
@@ -195,7 +259,7 @@ barLegend.append("text")
     .attr({
       d: arc,
       fill: function (d, i) {
-        return color(d.data.name);
+        return color(i);
       }
     });
   
@@ -217,6 +281,6 @@ barLegend.append("text")
     .attr({
       d: arc,
       fill: function (d, i) {
-        return color(d.data.name);
+        return color(i);
       }
     });

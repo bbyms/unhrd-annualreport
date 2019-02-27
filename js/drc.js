@@ -151,7 +151,9 @@ barLegend.append("text")
   var outerRadius = w / 2;
   var innerRadius = 50;
   
-  var color = d3.scale.category10();
+  var colors = ["#ff5252", "#ffc759", "#fcdc5d", "#b3de62"];
+
+  var color = d3.scale.ordinal().range(colors);
   
   var arc = d3.svg.arc()
     .outerRadius(outerRadius)
@@ -174,7 +176,7 @@ barLegend.append("text")
     .attr({
       d: arc,
       fill: function (d, i) {
-        return color(d.data.name);
+        return color(i);
       }
     });
   
@@ -195,7 +197,7 @@ barLegend.append("text")
     .attr({
       d: arc,
       fill: function (d, i) {
-        return color(d.data.name);
+        return color(i);
       }
     });
   
@@ -217,6 +219,6 @@ barLegend.append("text")
     .attr({
       d: arc,
       fill: function (d, i) {
-        return color(d.data.name);
+        return color(i);
       }
     });
