@@ -143,9 +143,9 @@ var pie = d3.layout.pie()
   .value(function (d) { return d.percent })
   .sort(null)
 
-var w = 150, h = 150;
+var w = 370, h = 150;
 
-var outerRadius = w / 2;
+var outerRadius = 75;
 var innerRadius = 50;
 
 var colors = ["#ff5252", "#ffc759", "#fcdc5d", "#b3de62"];
@@ -219,3 +219,111 @@ var volume = volumePie.selectAll('path')
       return color(i);
     }
   });
+
+  // Donut chart Legend ------------------------------------------------------------------------
+
+var legendRectSize = 15;
+var legendSpacing = 7;
+var legendHeight = legendRectSize + legendSpacing;
+
+var legend = weightPie.selectAll('.pie-legend')
+  .data(color.domain())
+  .enter()
+  .append('g')
+  .attr({
+    class: 'pie-legend',
+    transform: function (d, i) {
+      //Just a calculation for x & y position
+      return 'translate(-180,' + ((i * legendHeight) - 65) + ')';
+    }
+  });
+
+legend.append('rect')
+  .attr({
+    width: legendRectSize,
+    height: legendRectSize,
+    rx: 20,
+    ry: 20
+  })
+  .style({
+    fill: color
+  });
+
+legend.append('text')
+.data(pie(weight))
+  .attr({
+    x: 20,
+    y: 12
+  })
+  .text(function (d) {
+    return d.data.name;
+  });
+
+
+  var valueLegend = valuePie.selectAll('.pie-legend')
+  .data(color.domain())
+  .enter()
+  .append('g')
+  .attr({
+    class: 'pie-legend',
+    transform: function (d, i) {
+      //Just a calculation for x & y position
+      return 'translate(-180,' + ((i * legendHeight) - 65) + ')';
+    }
+  });
+
+valueLegend.append('rect')
+  .attr({
+    width: legendRectSize,
+    height: legendRectSize,
+    rx: 20,
+    ry: 20
+  })
+  .style({
+    fill: color
+  });
+
+valueLegend.append('text')
+  .data(pie(weight))
+  .attr({
+    x: 20,
+    y: 12
+  })
+  .text(function (d) {
+    return d.data.name;
+  });
+
+  var volumeLegend = volumePie.selectAll('.pie-legend')
+  .data(color.domain())
+  .enter()
+  .append('g')
+  .attr({
+    class: 'pie-legend',
+    transform: function (d, i) {
+      //Just a calculation for x & y position
+      return 'translate(-180,' + ((i * legendHeight) - 65) + ')';
+    }
+  });
+
+  volumeLegend.append('rect')
+  .attr({
+    width: legendRectSize,
+    height: legendRectSize,
+    rx: 20,
+    ry: 20
+  })
+  .style({
+    fill: color
+  });
+
+volumeLegend.append('text')
+  .data(pie(weight))
+  .attr({
+    x: 20,
+    y: 12
+  })
+  .text(function (d) {
+    return d.data.name;
+  });
+  
+// Donut chart Legend ------------------------------------------------------------------------

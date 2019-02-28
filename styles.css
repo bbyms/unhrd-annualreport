@@ -344,6 +344,10 @@ strong {
 
 #network {
   background-color: var(--accent);
+  background-image: url('images/network@2x.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0 -100px;
   position: relative;
 }
 
@@ -354,6 +358,17 @@ strong {
   border-bottom: 5px solid var(--primary);
   top: 60px;
   position: absolute;
+}
+
+@media screen and (max-width: 600px) {
+  #network {
+    background-position: center;
+  }
+
+  #network h1 {
+    text-align: center;
+    margin: 0 20px;
+  }
 }
 
 /* Operations ------------------------------------------------------------- */
@@ -626,6 +641,13 @@ strong {
   margin-right: 20px;
 }
 
+@media screen and (max-width: 668px) {
+  .icons {
+    padding: 15px 30px;
+    justify-content: start;
+  }
+}
+
 .piechart {
   display: flex;
   align-items: center;
@@ -635,6 +657,11 @@ strong {
 .piechart span {
   position: absolute;
   font-weight: 700;
+}
+
+.pie-legend text {
+  font-weight: 700;
+  font-size: 10px;
 }
 
 .transport text {
@@ -700,7 +727,7 @@ figcaption {
 /* Responsive ------------------------------------------------------------------ */
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 668px) {
   .grid,
   .grid-call-out,
   .grid-img,
@@ -712,7 +739,25 @@ figcaption {
     grid-row-gap: 0 !important;
   }
 
-  .cargo svg {
-    width: 375px;
+  .cargo svg,
+  .piechart svg {
+    width: 475px;
+  }
+
+
+  .piechart svg > g {
+    transform: translate(240px, 75px);
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .cargo svg,
+  .piechart svg,
+  .transport svg {
+    width: 350px;
+  }
+
+  .piechart svg > g {
+    transform: translate(180px, 75px);
   }
 }
