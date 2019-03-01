@@ -17,6 +17,7 @@
 
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -41,6 +42,59 @@ section {
   overflow: hidden;
 }
 
+/* Navigation ---------------------------------------------------------------------- */
+
+.toggle {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  z-index: 2;
+  background-color: transparent;
+  border: 0;
+  color: var(--white);
+  transition: color .3s ease-in-out;
+  margin: 0;
+  padding: 0;
+}
+
+.toggle:hover {
+  cursor: pointer;
+  color: var(--accent);
+  transition: color .3s ease-in-out;
+}
+
+nav {
+  position: fixed;
+  background-color: #2a93fccc;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  height: 100vh;
+  padding: 20px;
+  padding-top:50px;
+  transform: translateX(-300px);
+  transition: transform .3s ease-in-out;
+  z-index: 1;
+}
+
+.open {
+  transform: translateX(0);
+  transition: transform .3s ease-in-out;
+}
+
+nav a {
+  font-size: 13px;
+  text-transform: uppercase;
+  opacity: .5;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+  opacity: 1;
+  border-bottom: 2px solid white;
+}
+
 /* Layout ---------------------------------------------------------------------- */
 
 .grid {
@@ -52,11 +106,6 @@ section {
 
 .grid-3 {
   grid-template-columns: repeat(3, 1fr);
-}
-
-.grid-partners {
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
 }
 
 figure {
@@ -499,7 +548,8 @@ strong {
   background-image: url('images/section1.jpg');
 }
 
-#section2 {
+#section2,
+#partnerships {
   background-image: url('images/section2.jpg');
 }
 
@@ -513,6 +563,32 @@ strong {
 
 #partners {
   background-color: var(--white);
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+#partners img {
+  height: 120px;
+  width: auto;
+}
+
+.blue-bg {
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blue-bg h1 {
+  color: var(--white);
+}
+
+.partner-images {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 /* Intro ------------------------------------------------------------------ */
