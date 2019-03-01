@@ -51,15 +51,16 @@ section {
   z-index: 2;
   background-color: transparent;
   border: 0;
-  color: var(--white);
+  color: var(--accent);
   transition: color .3s ease-in-out;
   margin: 0;
   padding: 0;
 }
 
-.toggle:hover {
+.toggle:hover,
+.toggle:focus {
   cursor: pointer;
-  color: var(--accent);
+  color: var(--blue-light);
   transition: color .3s ease-in-out;
 }
 
