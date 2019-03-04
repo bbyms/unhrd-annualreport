@@ -397,7 +397,7 @@ strong {
   background-image: url('images/network@2x.png');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 0 -100px;
+  background-position: center -250px;
   position: relative;
 }
 
