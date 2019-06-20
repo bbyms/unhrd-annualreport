@@ -123,7 +123,9 @@ nav a:hover {
 
 
 @media screen and (max-width: 415px) {
-  flex-wrap: wrap;
+  .grid-auto {
+    flex-wrap: wrap;
+  }
 }
 
 figure {
@@ -350,13 +352,28 @@ strong {
 .cover {
   background-attachment: fixed;
   background-image: url('images/cover.jpg');
-  background-color: rgba(0,0,0,.6);
-  background-blend-mode: multiply;
+  /* background-color: rgba(0,0,0,.6);
+  background-blend-mode: multiply; */
   background-size: cover;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
+  position: relative;
+}
+
+.cover > .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0,0,0,.6);
+  z-index: 1;
+}
+
+.overlay-text {
+  position: relative;
+  z-index: 2;
 }
 
 .cover h1 {
