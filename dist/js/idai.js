@@ -2,14 +2,14 @@
 
 // Fake JSON data
 var json = {"countries_msg_vol": {
-  "Air": 10, "Charter": 60, "Land": 10, "Multimodal": 20
+  "Air Charter": 11, "Air Commercial": 73, "Multimodal": 3, "Sea": 13
 }};
 
 // D3 Bubble Chart 
 
 var diameter = 250;
 
-var svg = d3.select('#indonesiaTransport').append('svg')
+var svg = d3.select('#idaiTransport').append('svg')
         .attr('width', 450)
         .attr('height', diameter);
 
@@ -73,9 +73,9 @@ function processData(data) {
 // Bar chart --------------------------------------------------
 
 // Data array
-var data = [13.65, 61.93, 14.72, 3.39, 2.03, 4.26];
+var data = [0.92, 68.57, 11.79, 12.62, 4.38, 0.79, 0.93];
 
-var bartext = ["Camp Management", "Emergency Shelter", "Logistics", "Protection", "Staff Supplies", "Wash"];
+var bartext = ["Education", "Emergency Shelter", "Health", "Logistics", "Protection", "Staff Supplies", "WASH"];
 
 var width = 700,
     barHeight = 20;
@@ -84,9 +84,9 @@ var x = d3.scale.linear()
     .domain([0, d3.max(data)])
     .range([0, (width - 170)]);
 
-var chart = d3.select("#indonesiaCargo").append('svg')
+var chart = d3.select("#idaiCargo").append('svg')
     .attr("width", width + 60)
-    .attr("height", barHeight * data.length + 100);
+    .attr("height", barHeight * data.length + 120);
 
 //Bind data
 
@@ -125,21 +125,15 @@ barLegend.append("text")
     // Donut charts ------------------------------------------------------------------------
 
   var weight = [
-    { name: 'Dubai', percent: 16 },
-    {name: 'Kuala Lumpur', percent: 70},
-    {name: 'Brindisi', percent: 14}
+    { name: 'Global', percent: 100 }
   ];
   
   var volume = [
-    { name: 'Dubai', percent: 16 },
-    {name: 'Kuala Lumpur', percent: 64},
-    {name: 'Brindisi', percent: 20}
+    { name: 'Global', percent: 100 }
   ];
   
   var value = [
-    { name: 'Dubai', percent: 19 },
-    {name: 'Kuala Lumpur', percent: 56},
-    {name: 'Brindisi', percent: 25}
+    { name: 'Global', percent: 100 }
   ];
   
   var pie = d3.layout.pie()
@@ -151,7 +145,7 @@ barLegend.append("text")
   var outerRadius = 75;
   var innerRadius = 50;
   
-  var colors = ["#ff5252", "#ffc759", "#fcdc5d", "#b3de62"];
+  var colors = ["#0a6eb4", "#ffc759", "#fcdc5d", "#b3de62"];
 
   var color = d3.scale.ordinal().range(colors);
   
@@ -159,7 +153,7 @@ barLegend.append("text")
     .outerRadius(outerRadius)
     .innerRadius(innerRadius);
   
-  var weightPie = d3.select("#indWeight")
+  var weightPie = d3.select("#idaiWeight")
     .append("svg")
     .attr({
       width: w,
@@ -180,7 +174,7 @@ barLegend.append("text")
       }
     });
 
-var valuePie = d3.select("#indValue")
+var valuePie = d3.select("#idaiValue")
   .append("svg")
   .attr({
     width: w,
@@ -202,7 +196,7 @@ var value = valuePie.selectAll('path')
   });
   
   
-  var volumePie = d3.select("#indVolume")
+  var volumePie = d3.select("#idaiVolume")
     .append("svg")
     .attr({
       width: w,
@@ -224,110 +218,4 @@ var value = valuePie.selectAll('path')
     });
 
 
-    // Donut chart Legend ------------------------------------------------------------------------
-
-var legendRectSize = 15;
-var legendSpacing = 7;
-var legendHeight = legendRectSize + legendSpacing;
-
-var legend = weightPie.selectAll('.pie-legend')
-  .data(color.domain())
-  .enter()
-  .append('g')
-  .attr({
-    class: 'pie-legend',
-    transform: function (d, i) {
-      //Just a calculation for x & y position
-      return 'translate(-180,' + ((i * legendHeight) - 65) + ')';
-    }
-  });
-
-legend.append('rect')
-  .attr({
-    width: legendRectSize,
-    height: legendRectSize,
-    rx: 20,
-    ry: 20
-  })
-  .style({
-    fill: color
-  });
-
-legend.append('text')
-.data(pie(weight))
-  .attr({
-    x: 20,
-    y: 12
-  })
-  .text(function (d) {
-    return d.data.name;
-  });
-
-
-  var valueLegend = valuePie.selectAll('.pie-legend')
-  .data(color.domain())
-  .enter()
-  .append('g')
-  .attr({
-    class: 'pie-legend',
-    transform: function (d, i) {
-      //Just a calculation for x & y position
-      return 'translate(-180,' + ((i * legendHeight) - 65) + ')';
-    }
-  });
-
-valueLegend.append('rect')
-  .attr({
-    width: legendRectSize,
-    height: legendRectSize,
-    rx: 20,
-    ry: 20
-  })
-  .style({
-    fill: color
-  });
-
-valueLegend.append('text')
-  .data(pie(weight))
-  .attr({
-    x: 20,
-    y: 12
-  })
-  .text(function (d) {
-    return d.data.name;
-  });
-
-  var volumeLegend = volumePie.selectAll('.pie-legend')
-  .data(color.domain())
-  .enter()
-  .append('g')
-  .attr({
-    class: 'pie-legend',
-    transform: function (d, i) {
-      //Just a calculation for x & y position
-      return 'translate(-180,' + ((i * legendHeight) - 65) + ')';
-    }
-  });
-
-  volumeLegend.append('rect')
-  .attr({
-    width: legendRectSize,
-    height: legendRectSize,
-    rx: 20,
-    ry: 20
-  })
-  .style({
-    fill: color
-  });
-
-volumeLegend.append('text')
-  .data(pie(weight))
-  .attr({
-    x: 20,
-    y: 12
-  })
-  .text(function (d) {
-    return d.data.name;
-  });
   
-// Donut chart Legend ------------------------------------------------------------------------

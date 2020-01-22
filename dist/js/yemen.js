@@ -3,7 +3,7 @@
   // Fake JSON data
   var json = {
     "countries_msg_vol": {
-      "Air": 17, "Sea": 67, "Land": 17
+      "Air Commercial": 13, "Sea": 83, "Multimodal": 3
     }
   };
 
@@ -12,7 +12,7 @@
   var diameter = 250;
 
   var svg = d3.select('#yemenTransport').append('svg')
-    .attr('width', 350)
+    .attr('width', 450)
     .attr('height', diameter);
 
   var bubble = d3.layout.pack()
@@ -75,9 +75,9 @@
 // Bar chart --------------------------------------------------
 
 // Data array
-var data = [1.41, 1.17, 11.25, 41.31, 44.74, 0.11, 0, 01];
+var data = [0.03, 0.03, 99.91, 0.02];
 
-var bartext = ["Camp Management", "Emergency Shelter", "Health", "Logistics", "Nutrition", "Protection", "Wash"];
+var bartext = ["Emergency Shelter", "Health", "Logistics", "Staff Supplies"];
 
 var width = 700,
   barHeight = 20;
@@ -128,15 +128,15 @@ barLegend.append("text")
 // Donut charts ------------------------------------------------------------------------
 
 var weight = [
-  { name: 'Dubai', percent: 100 }
+  { name: 'Global', percent: 100 }
 ];
 
 var volume = [
-  { name: 'Dubai', percent: 100 }
+  { name: 'Global', percent: 100 }
 ];
 
 var value = [
-  { name: 'Dubai', percent: 100 }
+  { name: 'Global', percent: 100 }
 ];
 
 var pie = d3.layout.pie()
@@ -148,7 +148,7 @@ var w = 370, h = 150;
 var outerRadius = 75;
 var innerRadius = 50;
 
-var colors = ["#ff5252", "#ffc759", "#fcdc5d", "#b3de62"];
+var colors = ["#0a6eb4", "#ffc759", "#fcdc5d", "#b3de62"];
 
 var color = d3.scale.ordinal().range(colors);
 
@@ -220,110 +220,3 @@ var volume = volumePie.selectAll('path')
     }
   });
 
-  // Donut chart Legend ------------------------------------------------------------------------
-
-var legendRectSize = 15;
-var legendSpacing = 7;
-var legendHeight = legendRectSize + legendSpacing;
-
-var legend = weightPie.selectAll('.pie-legend')
-  .data(color.domain())
-  .enter()
-  .append('g')
-  .attr({
-    class: 'pie-legend',
-    transform: function (d, i) {
-      //Just a calculation for x & y position
-      return 'translate(-180,' + ((i * legendHeight) - 65) + ')';
-    }
-  });
-
-legend.append('rect')
-  .attr({
-    width: legendRectSize,
-    height: legendRectSize,
-    rx: 20,
-    ry: 20
-  })
-  .style({
-    fill: color
-  });
-
-legend.append('text')
-.data(pie(weight))
-  .attr({
-    x: 20,
-    y: 12
-  })
-  .text(function (d) {
-    return d.data.name;
-  });
-
-
-  var valueLegend = valuePie.selectAll('.pie-legend')
-  .data(color.domain())
-  .enter()
-  .append('g')
-  .attr({
-    class: 'pie-legend',
-    transform: function (d, i) {
-      //Just a calculation for x & y position
-      return 'translate(-180,' + ((i * legendHeight) - 65) + ')';
-    }
-  });
-
-valueLegend.append('rect')
-  .attr({
-    width: legendRectSize,
-    height: legendRectSize,
-    rx: 20,
-    ry: 20
-  })
-  .style({
-    fill: color
-  });
-
-valueLegend.append('text')
-  .data(pie(weight))
-  .attr({
-    x: 20,
-    y: 12
-  })
-  .text(function (d) {
-    return d.data.name;
-  });
-
-  var volumeLegend = volumePie.selectAll('.pie-legend')
-  .data(color.domain())
-  .enter()
-  .append('g')
-  .attr({
-    class: 'pie-legend',
-    transform: function (d, i) {
-      //Just a calculation for x & y position
-      return 'translate(-180,' + ((i * legendHeight) - 65) + ')';
-    }
-  });
-
-  volumeLegend.append('rect')
-  .attr({
-    width: legendRectSize,
-    height: legendRectSize,
-    rx: 20,
-    ry: 20
-  })
-  .style({
-    fill: color
-  });
-
-volumeLegend.append('text')
-  .data(pie(weight))
-  .attr({
-    x: 20,
-    y: 12
-  })
-  .text(function (d) {
-    return d.data.name;
-  });
-  
-// Donut chart Legend ------------------------------------------------------------------------
