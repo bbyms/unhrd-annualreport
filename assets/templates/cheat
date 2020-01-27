@@ -1,35 +1,5 @@
 
 
-		<!-- Field Support -->
-		<!-- <% include _sections/_fieldsupport/_intro %>
-
-		<% include _sections/_fieldsupport/_mozambique %>
-
-		<% include _sections/_fieldsupport/_bahamas %> -->
-
-		<!-- Partnerships -->
-		<!-- <% include _sections/_partnerships/_globalmeeting %>
-
-		<% include _sections/_partnerships/_group %>
-
-		<% include _sections/_partnerships/_partner %>
-
-		<% include _sections/_partnerships/_brindisi %> -->
-
-		<!-- Capacity Strenghtening -->
-		<!-- <% include _sections/_capacity/_kualalumpur %>
-
-		<% include _sections/_capacity/_brindisi %>
-
-		<% include _sections/_capacity/_training %> -->
-
-		<!-- Innovation -->
-		<!-- <% include _sections/_innovation/_intro %>
-
-		<% include _sections/_innovation/_coldchain %>
-
-		<% include _sections/_innovation/_portal %> -->
-
 		<!-- Behind the Scenes -->
 
 		<!-- <% include _sections/_behindscenes/_nesrin %>
@@ -41,3 +11,14 @@
 		<% include _sections/_behindscenes/_fiifi %>
 
 		<% include _sections/_behindscenes/_federico %> -->
+
+		<section class="section" id="partners" id="partners">
+	<div class="blue-bg">
+		<h1>UNHRD welcomed three new Partners in 2018</h1>
+	</div>
+	<div class="partner-images">
+		<img src="images/partners/bringhope.png" alt="">
+		<img src="images/partners/chai.jpg" alt="">
+		<img src="images/partners/nethope.jpg" alt="">
+	</div>
+  </section>

@@ -599,15 +599,19 @@ strong {
 
 #section2,
 #partnerships {
-  background-image: url('images/section2.jpg');
+  background-image: url('images/partnerships/10_Partnership Background.jpg');
 }
 
 #innovation {
-  background-image: url('images/innovation/inflatable1.jpg');
+  background-image: url('images/innovation/17_Innovation_background photos.jpg');
 }
 
 #behindthescenes {
   background-image: url('images/behind.jpg');
+}
+
+#capacity {
+	background-image: url('images/capacity/15_Capacity strenghtening_background.jpg');
 }
 
 #partners {
