@@ -442,7 +442,7 @@ strong {
 
 #network {
   background-color: var(--accent);
-  background-image: url('images/network@2x.png');
+  background-image: url('images/IMG_UNHRDShipments.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center -250px;
@@ -608,6 +608,10 @@ strong {
 
 #behindthescenes {
   background-image: url('images/behind.jpg');
+}
+
+#fieldsupport {
+	background-image: url('images/fieldteam/05_background Field Team.jpg');	
 }
 
 #capacity {
