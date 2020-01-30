@@ -365,7 +365,7 @@ strong {
 
 .cover {
   background-attachment: fixed;
-  background-image: url('images/cover.jpg');
+  background-image: url('images/cover.png');
   /* background-color: rgba(0,0,0,.6);
   background-blend-mode: multiply; */
   background-size: cover;
@@ -606,8 +606,8 @@ strong {
   background-image: url('images/innovation/17_Innovation_background photos.jpg');
 }
 
-#behindthescenes {
-  background-image: url('images/behind.jpg');
+#behindscenes {
+  background-image: url('images/behindscenes/IMG_behindthescenes.jpg');
 }
 
 #fieldsupport {
@@ -615,7 +615,7 @@ strong {
 }
 
 #capacity {
-	background-image: url('images/capacity/15_Capacity strenghtening_background.jpg');
+	background-image: url('images/capacity/IMG_capacitystrengthening_background.jpg');
 }
 
 #partners {
