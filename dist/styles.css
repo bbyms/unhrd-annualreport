@@ -75,7 +75,7 @@ nav {
   padding-top:50px;
   transform: translateX(-300px);
   transition: transform .3s ease-in-out;
-  z-index: 2;
+  z-index: 3;
 }
 
 .open {
@@ -554,6 +554,10 @@ strong {
   font-weight: 300;
   padding-bottom: 20px;
   display: block;
+}
+
+.numbers h2 small {
+	font-size: 30px;
 }
 
 .numbers label,
