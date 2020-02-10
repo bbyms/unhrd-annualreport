@@ -556,7 +556,7 @@ strong {
   display: block;
 }
 
-.numbers h2 small {
+.numbers h2 > small {
 	font-size: 30px;
 }
 
