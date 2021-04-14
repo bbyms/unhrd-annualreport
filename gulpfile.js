@@ -14,8 +14,8 @@ var gulp = require("gulp"),
           server: "dist/"
         });
 
-        gulp.watch('assets/scss/**/*.scss', ['sass']);
-        gulp.watch('assets/templates/**/*.ejs', ['templates']);
+        gulp.watch('assets/scss/**/*.scss', gulp.series('sass'));
+        gulp.watch('assets/templates/**/*.ejs', gulp.series('templates'));
         gulp.watch('dist/css/styles.css').on('change', browserSync.reload);
         gulp.watch('dist/*.html').on('change', browserSync.reload);
     });
@@ -50,4 +50,4 @@ var gulp = require("gulp"),
         gulp.watch('assets/templates/*.ejs' , ['templates']);
     });
 
-    gulp.task('default', ['serve']);
+    gulp.task('default', gulp.series('serve'));

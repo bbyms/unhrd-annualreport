@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-	"url": "git+https://bbyms@bitbucket.org/bbyms/unhrd-annualreport.git"
+    "url": "git+https://bbyms@bitbucket.org/bbyms/unhrd-annualreport.git"
   },
   "keywords": [
     "logistics",
@@ -23,8 +23,8 @@
     "browser-sync": "^2.26.3",
     "browserify": "^13.3.0",
     "ejs": "^2.6.1",
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^2.3.2",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
     "gulp-ejs": "^2.3.0",
     "gulp-postcss": "^6.2.0",
     "gulp-sass": "^3.2.1",
