@@ -11,7 +11,7 @@
 
   var diameter = 250;
 
-  var svg = d3.select('#yemenTransport').append('svg')
+  var svg = d3.select('#dubaiyemenTransport').append('svg')
     .attr('width', 450)
     .attr('height', diameter);
 
@@ -86,7 +86,7 @@ var x = d3.scale.linear()
   .domain([0, d3.max(data)])
   .range([0, (width - 170)]);
 
-var chart = d3.select("#yemenCargo").append('svg')
+var chart = d3.select("#dubaiyemenCargo").append('svg')
   .attr("width", width + 60)
   .attr("height", barHeight * data.length + 100);
 
@@ -156,7 +156,7 @@ var arc = d3.svg.arc()
   .outerRadius(outerRadius)
   .innerRadius(innerRadius);
 
-var weightPie = d3.select("#yemenWeight")
+var weightPie = d3.select("#dubaiyemenWeight")
   .append("svg")
   .attr({
     width: w,
@@ -177,7 +177,7 @@ var path = weightPie.selectAll('path')
     }
   });
 
-var valuePie = d3.select("#yemenValue")
+var valuePie = d3.select("#dubaiyemenValue")
   .append("svg")
   .attr({
     width: w,
@@ -199,7 +199,7 @@ var value = valuePie.selectAll('path')
   });
 
 
-var volumePie = d3.select("#yemenVolume")
+var volumePie = d3.select("#dubaiyemenVolume")
   .append("svg")
   .attr({
     width: w,
