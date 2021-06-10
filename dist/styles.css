@@ -1,5 +1,6 @@
 :root {
   --primary: #2A93FC;
+  --red: #fc2a2a;
   --accent: #1f6ebc;
   --blue-lighter: #b2d8fe;
   --blue-light: #85c1fd;
@@ -36,6 +37,14 @@ img {
 
 section {
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+sectionauto {
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,17 +120,26 @@ nav a:hover {
 
 .grid-auto {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  grid-column-gap: 30px;
+  align-items: left;
 }
 
 .grid-auto img {
   height: 80px;
-  max-width: 200px;
-  margin-bottom: 30px;
-  width: auto;
+  max-width: 80px;
+  margin-bottom: 10px;
+  width: 75px;
+  align-items: left;
 }
 
+.grid-auto2 img {
+  height: auto;
+  max-width: auto;
+  margin-bottom: 10px;
+  grid-column-gap: 60px;
+  width: 100px;
+  align-items: center; 
+}
 
 @media screen and (max-width: 415px) {
   .grid-auto {
@@ -213,6 +231,14 @@ li {
   font-weight: 700;
 }
 
+.leadwhite {
+  color: var(--white);
+  font-family: var(--sans-serif);
+  font-size: 18px;
+  font-weight: 700;
+  width: 700px;
+}
+
 label {
   line-height: 1.6;
   text-transform: uppercase;
@@ -300,9 +326,10 @@ justify-content: center;
 .content {
   padding: 30px;
   max-width: 800px;
-  margin: 0 auto;
+  margin: auto;
   color: var(--gray);
 }
+
 
 .content h1 {
   color: black;
@@ -330,6 +357,14 @@ justify-content: center;
   /* border: 1px dashed var(--primary); */
 }
 
+.call-out.red {
+  background-color: var(--red);
+  color: var(--white);
+  padding: 30px;
+  /* border: 1px dashed var(--primary); */
+}
+
+
 .call-out p {
   font-weight: 300;
   font-size: 16px;
@@ -340,7 +375,7 @@ justify-content: center;
 }
 
 .call-out-img {
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 600px) {
@@ -390,7 +425,7 @@ justify-content: center;
 
 .cover {
   background-attachment: fixed;
-  background-image: url('images/cover.png');
+  background-image: url('images/cover.jpg');
   /* background-color: rgba(0,0,0,.6);
   background-blend-mode: multiply; */
   background-size: cover;
@@ -416,6 +451,7 @@ section {
 
 .overlay-text {
   position: relative;
+  color: white;
   z-index: 2;
 }
 
@@ -472,6 +508,15 @@ section {
 #network {
   background-color: var(--accent);
   background-image: url('images/IMG_UNHRDShipments.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+#hubhighlights {
+  background-color: var(--accent);
+  background-image: url('images/Hub highlights - background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -632,15 +677,15 @@ section {
 
 #section2,
 #partnerships {
-  background-image: url('images/partnerships/10_Partnership Background.jpg');
+  background-image: url('images/AnniversaryBackground.jpg');
 }
 
 #innovation {
-  background-image: url('images/innovation/17_Innovation_background-photos.jpg');
+  background-image: url('images/CradleTent.jpeg');
 }
 
 #behindscenes {
-  background-image: url('images/behindscenes/IMG_behindthescenes.jpg');
+  background-image: url('images/IMG_behindthescenes.jpg');
 }
 
 #fieldsupport {
@@ -884,7 +929,7 @@ section {
 
 /* Figures ------------------------------------------------------------------ */
 
-figcaption {
+.figcaption {
   font-style: italic;
   font-size: .8rem;
   color: var(--gray);

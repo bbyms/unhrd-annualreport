@@ -75,9 +75,9 @@
 // Bar chart --------------------------------------------------
 
 // Data array
-var data = [0.03, 0.03, 99.91, 0.02, 3.31];
+var data = [46.06, 21.12, 20.10, 4.93, 4.48, 3.31];
 
-var bartext = ["Emergency Shelter", "Health", "Logistics", "Staff Supplies", "WASH"];
+var bartext = ["Logistics", "Health", "Emergency Shelter", "Early Recovery", "WASH", "Staff Supplies" ];
 
 var width = 700,
   barHeight = 20;
