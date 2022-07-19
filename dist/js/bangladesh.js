@@ -152,8 +152,6 @@ var colors = ["#ff5252", "#ffc759", "#fcdc5d", "#b3de62"];
 
 var color = d3.scale.ordinal().range(colors);
 
-console.log(color.range);
-
 var arc = d3.svg.arc()
   .outerRadius(outerRadius)
   .innerRadius(innerRadius);
