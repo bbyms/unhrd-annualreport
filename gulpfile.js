@@ -4,6 +4,8 @@ var gulp = require("gulp"),
     ejs = require("gulp-ejs"),
     watch = require("gulp-watch"),
     postcss = require('gulp-postcss'),
+    rename = require('gulp-rename'),
+    gulpCopy = require('gulp-copy'),
     autoprefixer = require('autoprefixer'),
     browserSync = require('browser-sync').create();
 
@@ -39,7 +41,8 @@ var gulp = require("gulp"),
     // compile ejs templates
     gulp.task('templates', function () {
        return gulp.src('assets/templates/*.ejs')
-         .pipe(ejs({}, {ext:'.html'}))
+         .pipe(ejs({}))
+         .pipe(rename({ extname: '.html' }))
          .pipe(gulp.dest('./dist'))
          .pipe(browserSync.stream());
     });
